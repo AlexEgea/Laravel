@@ -1,0 +1,83 @@
+<?php
+
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\ForcePasswordResetController;
+use App\Http\Controllers\Auth\DirectPasswordResetController; // 👈 AÑADIDO
+
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('guest')->group(function () {
+    // Registro
+    Route::get('register', [RegisteredUserController::class, 'create'])
+        ->name('register');
+
+    Route::post('register', [RegisteredUserController::class, 'store']);
+
+    // Login
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | CAMBIO DIRECTO DE CONTRASEÑA (SIN EMAIL)
+    |--------------------------------------------------------------------------
+    | Usamos nuestro propio controlador con mensajes personalizados.
+    | Reutilizamos los nombres de ruta por defecto:
+    | - password.request  → muestra el formulario
+    | - password.email    → procesa el formulario y cambia la contraseña
+    */
+    Route::get('forgot-password', [DirectPasswordResetController::class, 'create'])
+        ->name('password.request');
+
+    Route::post('forgot-password', [DirectPasswordResetController::class, 'store'])
+        ->name('password.email');
+
+    // Si NO vas a usar el flujo estándar de enlaces por correo,
+    // puedes comentar/eliminar estas rutas:
+    /*
+    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset');
+
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.store');
+    */
+
+    // 👉 FLUJO CUANDO EL ADMIN OBLIGA A CAMBIAR CONTRASEÑA
+    Route::get('force-password-reset', [ForcePasswordResetController::class, 'create'])
+        ->name('password.force');
+
+    Route::post('force-password-reset', [ForcePasswordResetController::class, 'store'])
+        ->name('password.force.store');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('verify-email', EmailVerificationPromptController::class)
+        ->name('verification.notice');
+
+    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
+        ->middleware(['signed', 'throttle:6,1'])
+        ->name('verification.verify');
+
+    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+        ->middleware('throttle:6,1')
+        ->name('verification.send');
+
+    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+        ->name('password.confirm');
+
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+
+    Route::put('password', [PasswordController::class, 'update'])
+        ->name('password.update');
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+});

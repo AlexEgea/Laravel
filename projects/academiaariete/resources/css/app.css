@@ -1,0 +1,654 @@
+/* Variables */ 
+:root{ 
+  --baseariete:#b91c1c; 
+  --arietehover:#850e0e; 
+}
+
+p{ 
+  text-align:justify; 
+  text-justify:inter-word; 
+  hyphens:auto; 
+  line-height:1.7; 
+}
+
+/* Header */
+header{ 
+  background-color: var(--baseariete);
+  color: #fff;
+}
+
+/* Títulos */
+h1.titulo{
+  font-size:clamp(1.75rem,2vw + 1rem,2.4rem);
+  font-weight:800; 
+  letter-spacing:.2px; 
+  line-height:1.15;
+  color:var(--baseariete); 
+  margin:0 0 1rem 0; 
+  padding-bottom:.5rem; 
+  position:relative; 
+  text-align:left !important;
+}
+
+h1.titulo::after{
+  content:""; 
+  position:absolute; 
+  left:0; bottom:0; 
+  height:4px; 
+  width:100%;
+  border-radius:9999px; 
+  background:linear-gradient(90deg,var(--baseariete),var(--arietehover));
+}
+h1.titulo + *{ 
+  border-top:0; 
+  padding-top:1rem; 
+  margin-top:1rem; 
+}
+
+h2.subtitulo{
+  font-size:clamp(1.125rem,1.2vw + .8rem,1.5rem);
+  font-weight:800; 
+  line-height:1.2; 
+  color:var(--baseariete); 
+  margin:1.25rem 0 .5rem 0; 
+  padding-bottom:.15rem; 
+  position:relative;
+}
+h3.subtitulo, 
+label.titulo{
+  font-size:clamp(1rem,0.95vw + .7rem,1.25rem);
+  font-weight:750; 
+  line-height:1.25; 
+  margin:1rem 0 .5rem 0; 
+  padding-bottom:.10rem; 
+  position:relative; 
+  color:var(--baseariete);
+}
+
+/* Listas */
+ul.puntos{ list-style-type:disc; 
+  list-style-position:inside; 
+  margin:0; padding-left:0; 
+}
+li.centrar{ text-align:center; 
+  list-style:none; 
+  margin:.75rem 0; 
+}
+
+ul.list-disc.ms-5 > li{ 
+  line-height:1.7; 
+  margin-bottom:.75rem; 
+}
+
+/* Footer (resumido) */
+.footer-title{ 
+  font-size:.95rem; 
+  font-weight:700; 
+  letter-spacing:.04em; 
+  text-transform:uppercase; 
+  margin-bottom:.75rem; 
+  color:#fff; 
+}
+.footer-links{ 
+  list-style:none; 
+  margin:0; 
+  padding:0; 
+}
+.footer-links li + li{ 
+  margin-top:.5rem; 
+}
+.footer-links a,
+.footer-link{ 
+  color:rgba(255,255,255,.9); 
+  text-decoration:none; 
+}
+.footer-links a:hover,
+.footer-link:hover{ 
+  text-decoration:underline; 
+  color:#fff; 
+}
+.footer-icon{ 
+  color:rgba(255,255,255,.85); 
+  transition:color .2s, transform .2s; 
+}
+.footer-icon:hover{ color:#fff; 
+  transform:translateY(-1px); 
+}
+.footer-social-img{ 
+  height:24px; 
+  width:auto; 
+  display:block; 
+  opacity:.9; 
+  transition:opacity .2s, transform .2s, filter .2s; 
+}
+.footer-social a:hover .footer-social-img{ 
+  opacity:1; 
+  transform:translateY(-1px); 
+}
+
+/* Menú desplegable (estilos existentes) */
+#menu-oposiciones,
+#submenu-fuerzas,
+#submenu-junta,
+#submenu-estado,
+#submenu-justicia,
+#submenu-hacienda,
+#submenu-ensenanza,
+#submenu-maestro,
+#submenu-profesor,
+#submenu-secundaria,
+#submenu-locales,
+#submenu-contacto{
+  background:var(--baseariete); 
+  color:#fff; 
+  box-shadow:0 10px 20px rgba(0,0,0,.15); 
+  border:1px solid rgba(255,255,255,.12);
+}
+#menu-oposiciones ul{ 
+  padding:.25rem 0; 
+}
+#menu-oposiciones a{ 
+  color:#fff; 
+  text-decoration:none; 
+}
+#menu-oposiciones a:hover,
+#menu-oposiciones a:focus{ 
+  background:var(--baseariete); 
+  color:#fff; 
+}
+#menu-oposiciones li + li a{ 
+  border-top:1px solid rgba(255,255,255,.08); 
+}
+#menu-oposiciones .py-2 > li > a,
+#submenu-fuerzas .py-2 > li > a,
+#submenu-junta .py-2 > li > a,
+#submenu-estado  .py-2 > li > a,
+#submenu-justicia  .py-2 > li > a,
+#submenu-hacienda  .py-2 > li > a,
+#submenu-ensenanza  .py-2 > li > a,
+#submenu-maestro  .py-2 > li > a,
+#submenu-profesor  .py-2 > li > a,
+#submenu-secundaria .py-2 > li > a,
+#submenu-locales  .py-2 > li > a,
+#submenu-contacto  .py-2 > li > a{
+  color:#fff; 
+  transition:background-color .15s, color .15s;
+}
+#menu-oposiciones .py-2 > li > a:hover,
+#menu-oposiciones .py-2 > li > a:focus-visible,
+#submenu-fuerzas .py-2 > li > a:hover,
+#submenu-fuerzas .py-2 > li > a:focus-visible,
+#submenu-junta .py-2 > li > a:hover,
+#submenu-junta .py-2 > li > a:focus-visible,
+#submenu-estado .py-2 > li > a:hover,
+#submenu-estado .py-2 > li > a:focus-visible,
+#submenu-justicia .py-2 > li > a:hover,
+#submenu-justicia .py-2 > li > a:focus-visible,
+#submenu-hacienda .py-2 > li > a:hover,
+#submenu-hacienda .py-2 > li > a:focus-visible,
+#submenu-ensenanza .py-2 > li > a:hover,
+#submenu-ensenanza .py-2 > li > a:focus-visible,
+#submenu-maestro .py-2 > li > a:hover,
+#submenu-maestro .py-2 > li > a:focus-visible,
+#submenu-profesor .py-2 > li > a:hover,
+#submenu-profesor .py-2 > li > a:focus-visible,
+#submenu-secundaria .py-2 > li > a:hover,
+#submenu-secundaria .py-2 > li > a:focus-visible,
+#submenu-locales .py-2 > li > a:hover,
+#submenu-locales .py-2 > li > a:focus-visible,
+#submenu-contacto .py-2 > li > a:hover,
+#submenu-contacto .py-2 > li > a:focus-visible{
+  background-color:var(--arietehover) !important; 
+  color:#fff !important; 
+  outline:none;
+}
+#item-contacto svg{ 
+  display:none; 
+}
+
+/* Contenedor (matrícula) */
+.matricula-page .card{
+  background:#fff; 
+  border-radius:14px;
+  box-shadow:0 10px 20px rgba(2,8,23,0.06), 0 2px 6px rgba(2,8,23,0.05);
+  border:1px solid rgba(2,8,23,0.06);
+}
+.matricula-page .stack{ 
+  display:grid; 
+  gap:1.25rem; 
+}
+.matricula-page .subtitulo{ 
+  font-weight:700; 
+  color:var(--baseariete); 
+  font-size:clamp(1.05rem,.95rem + .4vw,1.2rem); 
+}
+.matricula-page .hint{ 
+  font-size:.8rem; 
+  color:#64748b; 
+  margin-top:.3rem; 
+}
+
+/* Campos del formulario */
+.form-matricula label.titulo{ font-weight:600; 
+  color:#0f172a; 
+  font-size:.95rem; 
+}
+.form-matricula input:not([type="radio"]):not([type="checkbox"]),
+.form-matricula select,
+.form-matricula textarea{
+  border:2px solid var(--arietehover) !important;
+  border-radius:10px !important;
+  height:3rem; 
+  padding:0 .85rem; 
+  font-size:1rem; 
+  background:#fff; 
+  outline:none;
+  box-shadow:0 2px 0 rgba(2,8,23,0.02) inset;
+  transition:border-color .15s, box-shadow .15s, background .2s;
+}
+.form-matricula textarea{ 
+  height:auto; 
+  min-height:3.5rem; 
+  padding-top:.75rem; 
+  padding-bottom:.75rem; 
+}
+
+/* Foco */
+.form-matricula input:focus,
+.form-matricula select:focus,
+.form-matricula textarea:focus{
+  border-color:var(--arietehover) !important;
+  box-shadow:0 0 0 3px rgba(133,14,14,0.35);
+  background:#fff;
+}
+.form-matricula ::placeholder{ 
+  color:#94a3b8; 
+}
+
+/* Borde global del formulario */
+.matricula-page .form-matricula{
+  border:2px solid var(--baseariete) !important; 
+  border-radius:14px; 
+  background:#fff;
+}
+
+/* Tarifa */
+.matricula-page .tarifa{
+  background:rgba(133,14,14,0.06);
+  border:1px dashed var(--arietehover);
+  border-radius:10px; 
+  padding:.8rem 1rem;
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  text-align:center; 
+  min-height:3.25rem;
+}
+.matricula-page .tarifa h3{ 
+  margin:0; 
+}
+
+/* Botón principal */
+.matricula-page .btn-brand{
+  background:var(--arietehover); 
+  color:#fff; 
+  font-weight:700; 
+  letter-spacing:.2px; 
+  border-radius:10px;
+  transition:transform .05s, box-shadow .15s, background .15s;
+}
+.matricula-page .btn-brand:hover{ 
+  background:#6d0b0b; 
+  box-shadow:0 8px 20px rgba(133,14,14,.22); 
+}
+.matricula-page .btn-brand:active{ 
+  transform:translateY(1px); 
+}
+
+/* ======= Bloques de archivo: título / botón / mensaje ======= */
+/* Más compacto */
+.file-section{
+  margin-top:.5rem;
+  border:0 !important; background:transparent !important;
+}
+.file-title{ 
+  margin-bottom:.25rem; 
+}
+.file-button{ 
+  margin-bottom:.25rem; 
+}
+
+/* Ocultar el input nativo */
+.file-input-hidden{
+  position:absolute !important;
+  left:-99999px !important;
+  width:1px !important; 
+  height:1px !important;
+  overflow:hidden !important; 
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important; 
+  background:transparent !important; 
+  box-shadow:none !important; 
+  outline:none !important;
+}
+
+/* Mensaje con el nombre del/los archivo(s) */
+.file-msg{
+  font-size:.9rem; 
+  color:#334155;
+  white-space:normal; 
+  word-break:break-word;
+}
+
+/* Tamaño unificado de botones de archivo */
+:root{
+  --filebtn-width:200px;
+  --filebtn-height:44px;
+}
+
+/* Botón de seleccionar archivo */
+.btn-file{
+  background:var(--arietehover);
+  color:#fff; font-weight:700; 
+  letter-spacing:.2px;
+  border:0; 
+  border-radius:10px;
+  min-width:var(--filebtn-width);
+  height:var(--filebtn-height);
+  line-height:calc(var(--filebtn-height) - 2px);
+  padding:0 1.25rem;
+  cursor:pointer;
+  transition:transform .05s ease, background .15s ease;
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center; 
+  text-align:center; 
+  white-space:nowrap;
+  box-shadow:none !important;
+}
+.btn-file:hover{ 
+  background:#6d0b0b; 
+  box-shadow:none !important; 
+}
+.btn-file:active{ 
+  transform:translateY(1px); 
+  box-shadow:none !important; 
+}
+.btn-file:focus{ 
+  outline:2px solid transparent; 
+  box-shadow:none !important; 
+}
+
+/* Si el input oculto tiene error, reflejarlo en el botón */
+.file-input-hidden.is-invalid + .btn-file{ 
+  background:var(--baseariete); 
+}
+
+/* ======= NUEVO: GRID para 2 cards independientes (máximo espacio) ======= */
+.file-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr)); /* 2 columnas iguales, ocupando todo */
+  gap:1rem;                                        /* margen entre cards */
+  align-items:start;
+}
+.file-card{
+  background:#fff;
+  border:1px solid rgba(2,8,23,0.06);
+  border-radius:14px;
+  padding:1rem;
+  box-shadow:0 6px 14px rgba(2,8,23,.06), 0 1px 4px rgba(2,8,23,.05);
+  display:grid;
+  gap:.5rem;
+}
+
+/* Inline: botón + nombre en la misma línea dentro de cada card (con ellipsis) */
+.file-inline{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  width:100%;
+  min-width:0; /* clave para que flex-children puedan encoger */
+}
+.file-inline .btn-file{
+  flex:0 0 auto; /* el botón no se estira */
+}
+.file-inline .file-msg{
+  flex:1 1 0;
+  min-width:0;          /* CLAVE para permitir el ellipsis */
+  max-width:100%;
+  display:inline-block;
+
+  overflow:hidden;      /* CLAVE */
+  text-overflow:ellipsis; /* CLAVE */
+  white-space:nowrap;     /* CLAVE */
+
+  /* (opcional) estilo visual del recuadro si no lo tienes ya */
+  padding:.5rem .75rem;
+  border:1px dashed #c9c9c9;
+  border-radius:8px;
+  background:#fafafa;
+  color:#444;
+}
+
+/* Responsive: apilar en móvil */
+@media (max-width:768px){
+  .file-grid{ grid-template-columns:1fr; }
+}
+
+/* Mantener ellipsis también en móvil */
+@media (max-width:576px){
+  .file-inline{ flex-wrap:wrap; }
+  .file-inline .btn-file{ width:100%; }
+  .file-inline .file-msg{
+    width:100%;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap; /* mantenemos ellipsis también en móvil */
+  }
+}
+
+/* Errores */
+.form-matricula .is-invalid{ 
+  border-color:var(--baseariete) !important; 
+  box-shadow:0 0 0 3px rgba(185,28,28,0.18) !important; 
+  background:#fff; 
+}
+.form-matricula label.error{ 
+  color:var(--baseariete); 
+}
+.form-matricula .invalid-feedback{ 
+  display:block; margin-top:.35rem; 
+  font-size:.85rem; 
+  line-height:1.35; 
+  color:var(--baseariete); }
+.form-matricula .has-error{ 
+  border:1.5px dashed var(--baseariete); 
+  border-radius:10px; 
+  padding:.75rem .9rem; 
+  background:rgba(185,28,28,0.04); 
+}
+.form-matricula .has-error legend,
+.form-matricula .has-error .subtitulo{ 
+  color:var(--baseariete); 
+}
+.form-matricula .is-invalid:focus{ 
+  outline:none; 
+  box-shadow:0 0 0 3px rgba(185,28,28,0.18), 0 2px 0 rgba(2,8,23,0.02) inset; 
+}
+.form-matricula select.is-invalid + .invalid-feedback,
+.form-matricula input[type="file"].is-invalid + .invalid-feedback{ 
+  margin-top:.45rem; 
+}
+
+/* Sticky footer */
+html,
+body{ 
+  height:100%; 
+} 
+body{ 
+  min-height:100vh; 
+  display:flex; 
+  flex-direction:column; 
+}
+main{ 
+  flex:1 0 auto; 
+} 
+footer{ 
+  -top:auto; 
+}
+
+/* ===================== CONTACTO ===================== */
+.contacto-page .cards{ 
+  display:grid; gap:1rem; 
+}
+@media (min-width:768px){ .contacto-page .cards{
+  grid-template-columns:repeat(3,minmax(0,1fr)); }
+ }
+.contact-card{
+  background:#fff; 
+  border-radius:14px; 
+  border:1px solid rgba(2,8,23,0.06);
+  box-shadow:0 10px 20px rgba(2,8,23,0.06), 0 2px 6px rgba(2,8,23,0.05);
+  padding:1.25rem; 
+  transition:transform .08s, box-shadow .15s, border-color .15s; 
+  text-align:center; 
+  display:grid; 
+  justify-items:center;
+}
+.contact-card:hover{ 
+  transform:translateY(-2px); 
+  box-shadow:0 16px 30px rgba(2,8,23,0.10), 0 3px 8px rgba(2,8,23,0.05); 
+  border-color:rgba(2,8,23,0.10); 
+}
+.contact-card h3{ 
+  margin:0; 
+  font-weight:800; 
+  letter-spacing:.2px; 
+  color:var(--baseariete); 
+}
+.contact-icon{ 
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center; 
+  width:44px; 
+  height:44px; 
+  border-radius:9999px; 
+  background:rgba(185,28,28,.09); 
+}
+.contact-card .head{ 
+  display:flex; 
+  align-items:center; 
+  gap:.75rem; 
+  width:100%; 
+  justify-content:flex-start; 
+  text-align:left; 
+  margin-bottom:.25rem; 
+}
+.contact-card .title-underline{ 
+  height:4px; 
+  width:100%; 
+  border-radius:9999px; 
+  background:linear-gradient(90deg,var(--baseariete),var(--arietehover)); 
+  margin:.35rem 0 .25rem 0; 
+}
+.card-link{ 
+  display:block; 
+  text-decoration:none; 
+  color:inherit; 
+  cursor:pointer; 
+  height:100%; 
+}
+.card-link:hover .contact-card{ 
+  transform:translateY(-2px); 
+  box-shadow:0 16px 30px rgba(2,8,23,0.10), 0 3px 8px rgba(2,8,23,0.05); 
+  border-color:rgba(2,8,23,0.10); 
+}
+.card-link:focus-visible .contact-card{ 
+  outline:3px solid rgba(133,14,14,0.35); 
+  outline-offset:3px; 
+}
+.map-wrap{ 
+  background:#fff; 
+  border-radius:14px; 
+  overflow:hidden; 
+  border:1px solid rgba(2,8,23,0.06); 
+  box-shadow:0 10px 20px rgba(2,8,23,0.06), 0 2px 6px rgba(2,8,23,0.05); 
+}
+
+/* Formulario contacto */
+.contact-form{
+  background:#fff;
+  border-radius:14px; 
+  padding:1.25rem;
+  border:2px solid var(--baseariete) !important;
+  box-shadow:0 10px 20px rgba(2,8,23,0.06), 0 2px 6px rgba(2,8,23,0.05);
+}
+.contact-form input:not([type="checkbox"]), 
+.contact-form select, 
+.contact-form textarea{
+  border:2px solid var(--arietehover) !important; 
+  border-radius:10px !important; height:3rem; 
+  padding:0 .85rem; 
+  font-size:1rem; 
+  background:#fff; 
+  outline:none; 
+  box-shadow:0 2px 0 rgba(2,8,23,0.02) inset; 
+  transition:border-color .15s, box-shadow .15s, background .2s;
+}
+.contact-form textarea{ 
+  height:auto; 
+  min-height:8rem; 
+  padding-top:.75rem; 
+  padding-bottom:.75rem; 
+}
+.contact-form input:focus, 
+.contact-form select:focus, 
+.contact-form textarea:focus{ 
+  border-color:var(--arietehover) !important; 
+  box-shadow:0 0 0 3px rgba(133,14,14,0.35); 
+  background:#fff; 
+}
+.contact-form .btn-brand{
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center;
+  background:var(--arietehover); 
+  color:#fff; 
+  font-weight:700; 
+  border-radius:10px;
+  padding:.625rem 1.25rem; 
+  transition:transform .05s, box-shadow .15s, background .15s;
+  border:1px solid transparent;
+}
+.contact-form .btn-brand:hover{ 
+  background:#6d0b0b; 
+  box-shadow:0 8px 20px rgba(133,14,14,.22);
+ }
+.contact-form .btn-brand:active{ 
+  transform:translateY(1px); 
+}
+
+/* --- UNIFICADOR DE TAMAÑO PARA AMBOS BOTONES (archivo y enviar) --- */
+.btn-uniform{
+  min-width:var(--filebtn-width);
+  min-height:var(--filebtn-height);
+  height:var(--filebtn-height);
+}
+
+/* Mostrar nombre de archivo junto al botón en contacto */
+.file-name{
+  display:inline-block; vertical-align:middle;
+  min-width:220px; padding:.5rem .75rem;
+  border:1px dashed #c9c9c9; border-radius:8px;
+  background:#fafafa; color:#444;
+}
+
+/* Responsive (contacto): botones a 100% y archivo debajo */
+@media (max-width:576px){
+  .btn-uniform{ width:100%; }
+  .file-name{ display:block; width:100%; margin-top:.5rem; }
+}
+
+
